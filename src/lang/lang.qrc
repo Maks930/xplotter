@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/lang">
+        <file>xplotter_en_001.ts</file>
+    </qresource>
+</RCC>
