@@ -40,7 +40,11 @@ set_target_properties(xp_app PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY
 set_target_properties(xp_app PROPERTIES OUTPUT_NAME xplotter)
 
 
-target_link_libraries(xp_app PRIVATE xp_gui)
+target_link_libraries(xp_app
+    PRIVATE
+        xp_gui
+        xp_core
+)
 
 
 install(TARGETS xp_app

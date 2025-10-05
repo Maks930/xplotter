@@ -85,5 +85,37 @@ else()
     feature_summary(WHAT ENABLED_FEATURES DISABLED_FEATURES)
 endif()
 
+
+set(BOOST_INCLUDE_LIBRARIES math filesystem system program_options)
+set(BOOST_ENABLE_CMAKE ON)
+include(FetchContent)
+FetchContent_Declare(
+        Boost
+        GIT_REPOSITORY https://github.com/boostorg/boost.git
+        GIT_TAG boost-1.89.0
+)
+FetchContent_MakeAvailable(Boost)
+
+FetchContent_Declare(
+        googletest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.14.0
+)
+FetchContent_MakeAvailable(googletest)
+
+FetchContent_Declare(
+        glaze
+        GIT_REPOSITORY https://github.com/stephenberry/glaze.git
+        GIT_TAG v5.7.2
+)
+FetchContent_MakeAvailable(glaze)
+
+add_compile_definitions(XLP_APP_VER_MAJOR=0)
+add_compile_definitions(XLP_APP_VER_MINOR=0)
+add_compile_definitions(XLP_APP_VER_PATCH=0)
+add_compile_definitions(XLP_APP_VER="${XLP_APP_VER_MAJOR}.${XLP_APP_VER_MINOR}.${XLP_APP_VER_PATCH}")
+
+add_subdirectory(external)
 add_subdirectory(src)
+add_subdirectory(test)
 

@@ -20,6 +20,8 @@
 core
 !core/
 tags
+.idea
+CMakeLists.txt.user
 .DS_Store
 .directory
 *.debug
