@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <glaze/glaze.hpp>
 
 namespace xlp {
     class MetaInfo;
@@ -50,7 +51,22 @@ public:
     void set_description(const std::string &description);
 
     void add_author(const author_type &author);
+
+    friend struct glz::meta<xlp::MetaInfo>;
 };
+
+template <>
+  struct glz::meta<xlp::MetaInfo> {
+    using T = xlp::MetaInfo;
+    static constexpr auto value = object(
+        "name", &T::_name,
+        "authors", &T::_authors,
+        "description", &T::_description,
+        "project-version", &T::_project_version,
+        "app-version", &T::_app_version
+   );
+};
+
 
 namespace std {
     inline std::string to_string(const xlp::Version &version) {

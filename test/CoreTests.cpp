@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 
 #include "../src/core/Project/MetaInfo/MetaInfo.h"
-
+#include <glaze/glaze.hpp>
 
 
 TEST(BooleanOperators, Care1) {
@@ -28,11 +28,6 @@ TEST(BooleanOperators, Case2) {
 
     EXPECT_EQ(ver1 >= ver2, false);
     EXPECT_EQ(ver1 <= ver2, true);
-}
-
-TEST(VersionSerialize, Case1) {
-    xlp::Version ver1{.major = 1, .minor = 0, .patch = 0};
-
 }
 
 TEST(METAINFO_TEST, Case1) {

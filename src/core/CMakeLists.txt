@@ -23,4 +23,7 @@ target_include_directories(xp_core PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
 
 target_link_libraries(xp_core
+        PRIVATE
+            glaze::glaze
+
 )
